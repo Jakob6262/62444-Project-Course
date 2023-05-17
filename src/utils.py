@@ -1,6 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 
 def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel):
@@ -54,3 +55,9 @@ def get_a_random_chunk_property(data):
     print("date:", date)
     print("NEO name:", object["name"])
     print(f"{property}:", object[property])
+
+
+def load_data_from_google_drive(url):
+    url_processed='https://drive.google.com/uc?id=' + url.split('/')[-2]
+    df = pd.read_csv(url_processed)
+    return df
